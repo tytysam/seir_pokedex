@@ -195,10 +195,6 @@ The order of your commits does not matter, but refer back to the MVP to make sur
 - Your app MUST have some styling! Portfolio quality styling is recommended but basic styling will be accepted if you're maxing out on your 4hrs per night. Leave a note in your Git Issue if this is the case. 
 
  
-### Submission Guidelines
-
-- Must be submitted via Github Issues no later than the start of class on Friday August 14th. 
-
 ---
 
 *Copyright 2020, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)*
