@@ -16,7 +16,7 @@ class Index extends React.Component {
           {pokemonData.map((pokemon, index) => {
             return (
               <li>
-                <a href={`pokedex/${index}`}>
+                <a href={`/pokedex/${index}`}>
                   <div className="pokemon-container">
                     <img src={pokemon.img} />
                     <h2>

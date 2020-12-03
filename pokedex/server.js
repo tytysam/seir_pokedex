@@ -34,7 +34,6 @@ app.use(methodOverride("_method")); // gives us the ability to overwrite a POST 
 // --> I.N.D.U.C.E.S. ... Index, New, Destroy, Update, Create, Edit, Show
 
 // INDEX | ==> GET request
-// ==> /pokedex
 app.get("/pokedex", (req, res) => {
   res.render("Index", {
     pokemon: pokemonData,
@@ -42,33 +41,29 @@ app.get("/pokedex", (req, res) => {
 });
 
 // NEW | ==> GET request
-// ==> /pokedex/new
 app.get("/pokedex/new", (req, res) => {
   res.render("New");
 });
 
 // Destroy | ==> DELETE request
-// ==> /pokedex/:id
 app.delete("/pokedex/:indexOfPokemonDataArray", (req, res) => {
   pokemonData.splice(req.params.indexOfPokemonDataArray, 1); // remove one single item from the array, at the location of the index we're passing through...
   res.redirect("/pokedex"); // redirect back to our index
 });
 
 // Update | ==> PUT request
-// ==> /pokedex/:id
 app.put("/pokedex/:indexOfPokemonDataArray", (req, res) => {
-  // * REVISIT ONCE WE HAVE ALL OF OUR DATA FIGURED OUT
+  pokemonDatap[req.params.indexOfPokemonDataArray] = req.body;
+  res.redirect("/pokedex/");
 });
 
 // Create | ==> POST request
-// ==> /pokedex
 app.post("/pokedex/", (req, res) => {
   pokemonData.push(req.body); // push our data to our model (pokemon.js)
   res.redirect("/pokedex/"); // then redirect the user to the index
 });
 
 // Edit | ==> GET request
-// ==> /pokedex/:id/edit
 app.get("/pokedex/:indexOfPokemonDataArray/edit", (req, res) => {
   res.render(
     "Edit", // renders views/edit.ejs
@@ -80,7 +75,6 @@ app.get("/pokedex/:indexOfPokemonDataArray/edit", (req, res) => {
 });
 
 // Show | ==> GET request
-// ==> /pokedex/:id
 app.get("/pokedex/:indexOfPokemonDataArray", (req, res) => {
   res.render("Show", {
     pokemon: pokemonData[req.params.indexOfPokemonDataArray],
