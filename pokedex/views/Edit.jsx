@@ -5,6 +5,8 @@ class Edit extends React.Component {
   render() {
     const pokemon = this.props.pokemon;
     const index = this.props.index;
+    const individualStats = Object.keys(pokemon.stats);
+    console.log(individualStats);
     return (
       <Layout>
         <h1 class="first-element">Edit: {pokemon.name}</h1>
@@ -20,40 +22,44 @@ class Edit extends React.Component {
           ID: <input type="text" name="id" value={pokemon.id} />
           <br />
           HP:{" "}
-          <input type="text" name={pokemon.stats[0]} value={pokemon.stats.hp} />
+          <input
+            type="text"
+            name={individualStats[0]}
+            value={pokemon.stats.hp}
+          />
           <br />
           ATTACK:{" "}
           <input
             type="text"
-            name={pokemon.stats[1]}
+            name={individualStats[1]}
             value={pokemon.stats.attack}
           />
           <br />
           DEFENSE:{" "}
           <input
             type="text"
-            name={pokemon.stats[2]}
+            name={individualStats[2]}
             value={pokemon.stats.defense}
           />
           <br />
           SP-ATTACK:{" "}
           <input
             type="text"
-            name={pokemon.stats[3]}
+            name={individualStats[3]}
             value={pokemon.stats.spattack}
           />
           <br />
           SP-DEFENSE:{" "}
           <input
             type="text"
-            name={pokemon.stats[4]}
+            name={individualStats[4]}
             value={pokemon.stats.spdefense}
           />
           <br />
           SPEED:{" "}
           <input
             type="text"
-            name={pokemon.stats[5]}
+            name={individualStats[5]}
             value={pokemon.stats.speed}
           />
           <br />
