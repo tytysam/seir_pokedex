@@ -6,7 +6,7 @@ class Layout extends React.Component {
       <html>
         <head>
           <title>Gotta' Catch 'Em All!</title>
-          <link rel="stylesheet" href="/public/css/style.css" />
+          <link rel="stylesheet" href="/css/style.css" />
         </head>
         <body>
           <nav>

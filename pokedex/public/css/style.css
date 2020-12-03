@@ -1,3 +1,17 @@
 * {
-  color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.pokemon-container {
+}
+
+img {
+  height: 75px;
 }

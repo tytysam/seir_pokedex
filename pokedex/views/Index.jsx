@@ -6,18 +6,26 @@ class Index extends React.Component {
     const pokemonData = this.props.pokemon;
     return (
       <Layout>
-        <h1>My Pokedex</h1>
+        <div>
+          <img src="/images/my-pokedex-header.png" />
+        </div>
         <nav>
           <a href="/pokedex/new">Discover a new Pokemon!</a>
         </nav>
         <ul>
           {pokemonData.map((pokemon, index) => {
             return (
-              <div className="pokemon-container">
-                <img src={pokemonData.img} />
-                <h2>{pokemonData.name}</h2>
-                <p>{pokemonData.type}</p>
-              </div>
+              <li>
+                <a href={`pokedex/${index}`}>
+                  <div className="pokemon-container">
+                    <img src={pokemon.img} />
+                    <h2>
+                      {pokemon.id} - {pokemon.name}
+                    </h2>
+                    <p>{pokemon.type}</p>
+                  </div>
+                </a>
+              </li>
             );
           })}
         </ul>

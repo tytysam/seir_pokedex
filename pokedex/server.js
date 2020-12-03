@@ -69,7 +69,7 @@ app.post("/pokedex/", (req, res) => {
 
 // Edit | ==> GET request
 // ==> /pokedex/:id/edit
-app.get("/pokedex/:indexOfPokemonDataArray", (req, res) => {
+app.get("/pokedex/:indexOfPokemonDataArray/edit", (req, res) => {
   res.render(
     "Edit", // renders views/edit.ejs
     {
