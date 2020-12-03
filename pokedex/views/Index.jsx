@@ -11,6 +11,7 @@ class Index extends React.Component {
         </div>
         <ul>
           {pokemonData.map((pokemon, index) => {
+            // const types = pokemon.type.map((type) => type.name).join(", ");
             return (
               <li>
                 <a href={`/pokedex/${index}`}>

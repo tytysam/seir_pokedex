@@ -19,34 +19,43 @@ class Edit extends React.Component {
           <br />
           ID: <input type="text" name="id" value={pokemon.id} />
           <br />
-          HP: <input type="text" name="hp" value={pokemon.stats.hp} />
+          HP:{" "}
+          <input type="text" name={pokemon.stats[0]} value={pokemon.stats.hp} />
           <br />
           ATTACK:{" "}
-          <input type="text" name="stats.attack" value={pokemon.stats.attack} />
+          <input
+            type="text"
+            name={pokemon.stats[1]}
+            value={pokemon.stats.attack}
+          />
           <br />
           DEFENSE:{" "}
           <input
             type="text"
-            name="stats.defense"
+            name={pokemon.stats[2]}
             value={pokemon.stats.defense}
           />
           <br />
           SP-ATTACK:{" "}
           <input
             type="text"
-            name="stats.spattack"
+            name={pokemon.stats[3]}
             value={pokemon.stats.spattack}
           />
           <br />
           SP-DEFENSE:{" "}
           <input
             type="text"
-            name="stats.spdefense"
+            name={pokemon.stats[4]}
             value={pokemon.stats.spdefense}
           />
           <br />
           SPEED:{" "}
-          <input type="text" name="stats.speed" value={pokemon.stats.speed} />
+          <input
+            type="text"
+            name={pokemon.stats[5]}
+            value={pokemon.stats.speed}
+          />
           <br />
           TYPE(S): <input type="text" name="type" value={pokemon.type} />
           <br />

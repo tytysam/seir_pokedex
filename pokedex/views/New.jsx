@@ -9,9 +9,11 @@ class New extends React.Component {
         <form class="embedded" action="/pokedex/" method="POST">
           Name: <input type="text" name="name" />
           <br />
+          Image: <input type="text" name="img" />
+          <br />
           ID: <input type="text" name="id" />
           <br />
-          {/* HP: <input type="text" name="stats.hp" />
+          HP: <input type="text" name="stats.hp" />
           <br />
           ATTACK: <input type="text" name="stats.attack" />
           <br />
@@ -24,7 +26,7 @@ class New extends React.Component {
           SPEED: <input type="text" name="stats.speed" />
           <br />
           TYPE(S): <input type="text" name="type" />
-          <br /> */}
+          <br />
           <input
             id="submit-new"
             class="submit-button"

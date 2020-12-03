@@ -94,7 +94,7 @@ li {
   text-align: center;
 }
 
-.show-container {
+.img-container {
   background-color: #ffffff;
   margin: 10px auto;
   margin-top: 100px;
@@ -108,7 +108,7 @@ li {
   width: 400px;
 }
 
-.show-container img {
+.img-container img {
   height: 325px;
   width: 325px;
 }
