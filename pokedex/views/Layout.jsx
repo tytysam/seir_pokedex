@@ -9,8 +9,10 @@ class Layout extends React.Component {
           <link rel="stylesheet" href="/css/style.css" />
         </head>
         <body>
-          <nav>
+          <nav class="static-layout-buttons">
             <a href="/pokedex">Back to My Pokedex</a>
+
+            <a href="/pokedex/new">Discover a new Pokemon!</a>
           </nav>
           {this.props.children}
         </body>

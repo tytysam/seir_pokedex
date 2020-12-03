@@ -53,7 +53,7 @@ app.delete("/pokedex/:indexOfPokemonDataArray", (req, res) => {
 
 // Update | ==> PUT request
 app.put("/pokedex/:indexOfPokemonDataArray", (req, res) => {
-  pokemonDatap[req.params.indexOfPokemonDataArray] = req.body;
+  pokemonData[req.params.indexOfPokemonDataArray] = req.body;
   res.redirect("/pokedex/");
 });
 

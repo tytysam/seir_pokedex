@@ -5,8 +5,8 @@ class New extends React.Component {
   render() {
     return (
       <Layout>
-        <h1>Create a new Pokedex Entry!</h1>
-        <form action="/pokedex/" method="POST">
+        <h1 class="first-element">Create a new Pokedex Entry!</h1>
+        <form class="embedded" action="/pokedex/" method="POST">
           Name: <input type="text" name="name" />
           <br />
           ID: <input type="text" name="id" />
@@ -25,7 +25,13 @@ class New extends React.Component {
           <br />
           TYPE(S): <input type="text" name="type" />
           <br /> */}
-          <input type="submit" name="" value="New Pokedex Entry" />
+          <input
+            id="submit-new"
+            class="submit-button"
+            type="submit"
+            name=""
+            value="New Pokedex Entry"
+          />
         </form>
       </Layout>
     );

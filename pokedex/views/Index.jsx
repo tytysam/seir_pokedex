@@ -6,12 +6,9 @@ class Index extends React.Component {
     const pokemonData = this.props.pokemon;
     return (
       <Layout>
-        <div>
+        <div class="header-image-container">
           <img src="/images/my-pokedex-header.png" />
         </div>
-        <nav>
-          <a href="/pokedex/new">Discover a new Pokemon!</a>
-        </nav>
         <ul>
           {pokemonData.map((pokemon, index) => {
             return (
@@ -20,11 +17,24 @@ class Index extends React.Component {
                   <div className="pokemon-container">
                     <img src={pokemon.img} />
                     <h2>
-                      {pokemon.id} - {pokemon.name}
+                      {pokemon.id}
+                      <br />
+                      {pokemon.name}
                     </h2>
                     <p>{pokemon.type}</p>
                   </div>
                 </a>
+                <div class="buttons">
+                  <form
+                    action={`/pokedex/${index}?_method=DELETE`}
+                    method="POST"
+                  >
+                    <input class="submit-button" type="submit" value="REMOVE" />
+                  </form>
+                  <a className="edit-button" href={`/pokedex/${index}/edit`}>
+                    Edit {pokemon.name}
+                  </a>
+                </div>
               </li>
             );
           })}
