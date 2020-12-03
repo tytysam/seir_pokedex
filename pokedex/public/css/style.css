@@ -57,8 +57,12 @@ ul {
   width: 90vw;
   margin: 10px auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto 1fr auto;
+  /* grid-template-columns: repeat(5, 1fr); */
+  /* grid-template-rows: auto 1fr auto; */
+
+  /* use the below rather than the above... because responsive! */
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+
   grid-gap: 20px;
   list-style-type: none;
 }
