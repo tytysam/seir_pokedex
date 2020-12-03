@@ -4,22 +4,22 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
-
-// const methodOverride = require("method-override");
+const methodOverride = require("method-override");
 // const router = require("./controllers/pokedexController.js");
 
 // =======================================
 //                DATABASE
 // =======================================
-const pokeData = require("./models/pokemon.js");
+const pokemonData = require("./models/pokemon.js");
 
 // =======================================
 //               MIDDLEWARE
 // =======================================
-app.set("view engine", "jsx"); //
-app.engine("jsx", require("express-react-views").createEngine());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public"));
+app.set("view engine", "jsx"); // use the .set method to create a key/value pair... our Key = "view engine" and our Value ="jsx"
+app.engine("jsx", require("express-react-views").createEngine()); // Creates our engine
+app.use(express.urlencoded({ extended: false })); // * note: <== THIS (.urlencoded) is what gives us access to req.body
+app.use(express.static("public")); // tells express to look in our public folder by default for static files
+app.use(methodOverride("_method")); // gives us the ability to overwrite a POST or GET method with DELETE or PUT or...?
 
 // =======================================
 //             CONTROLLERS
@@ -34,18 +34,58 @@ app.use(express.static("public"));
 // --> I.N.D.U.C.E.S. ... Index, New, Destroy, Update, Create, Edit, Show
 
 // INDEX | ==> GET request
+// ==> /pokedex
+app.get("/pokedex", (req, res) => {
+  res.render("Index", {
+    pokemon: pokemonData,
+  });
+});
 
 // NEW | ==> GET request
+// ==> /pokedex/new
+app.get("/pokedex/new", (req, res) => {
+  res.render("New");
+});
 
 // Destroy | ==> DELETE request
+// ==> /pokedex/:id
+app.delete("/pokedex/:indexOfPokemonDataArray", (req, res) => {
+  pokemonData.splice(req.params.indexOfPokemonDataArray, 1); // remove one single item from the array, at the location of the index we're passing through...
+  res.redirect("/pokedex"); // redirect back to our index
+});
 
 // Update | ==> PUT request
+// ==> /pokedex/:id
+app.put("/pokedex/:indexOfPokemonDataArray", (req, res) => {
+  // * REVISIT ONCE WE HAVE ALL OF OUR DATA FIGURED OUT
+});
 
 // Create | ==> POST request
+// ==> /pokedex
+app.post("/pokedex/", (req, res) => {
+  pokemonData.push(req.body); // push our data to our model (pokemon.js)
+  res.redirect("/pokedex/"); // then redirect the user to the index
+});
 
 // Edit | ==> GET request
+// ==> /pokedex/:id/edit
+app.get("/pokedex/:indexOfPokemonDataArray", (req, res) => {
+  res.render(
+    "Edit", // renders views/edit.ejs
+    {
+      pokemon: pokemonData[req.params.indexOfPokemonDataArray], // the pokemonData object...
+      index: req.params.indexOfPokemonDataArray, // and its index in the array...
+    }
+  );
+});
 
 // Show | ==> GET request
+// ==> /pokedex/:id
+app.get("/pokedex/:indexOfPokemonDataArray", (req, res) => {
+  res.render("Show", {
+    pokemon: pokemonData[req.params.indexOfPokemonDataArray],
+  });
+});
 
 // =======================================
 //              LISTENER
